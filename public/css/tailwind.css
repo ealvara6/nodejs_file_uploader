@@ -554,8 +554,20 @@ video {
   display: none;
 }
 
-.mt-8 {
-  margin-top: 2rem;
+.flex {
+  display: flex;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .bg-slate-800 {
@@ -563,17 +575,33 @@ video {
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
 }
 
-.text-center {
-  text-align: center;
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-white {
