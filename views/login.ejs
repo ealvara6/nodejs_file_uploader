@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body class="bg-slate-800 text-white">
+    <div class="flex flex-col">
+        <%- include('./partials/navbar') %>
+        <form action="/auth/login" method="POST">
+            <%- include('./partials/errors.ejs') %>
+            <div>
+                <label for="username">Email:</label>
+                <input class="text-black" type="email" name="username" id="username">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input class="text-black" type="password" name="password" id="password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

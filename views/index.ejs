@@ -9,6 +9,11 @@
 <body class="bg-slate-800 text-white">
     <div>
         <%- include('./partials/navbar.ejs') %>
+        <div>
+            <% if (locals.user) { %>
+                <div>Hello <%= user.firstName %>!</div>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>
