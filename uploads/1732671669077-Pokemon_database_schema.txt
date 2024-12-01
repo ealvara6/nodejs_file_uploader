@@ -1,0 +1,31 @@
+POKEMON
+	*No
+	*Image
+	*Name
+	*abilities
+	**Type
+	**Devolution
+	**Evolution
+	
+Types
+	*name
+	*Image
+	**strong Against
+	**Weak against
+	
+Trainers
+	*name
+	*location
+	**region
+	**Pokemon
+	**specialty-type
+	
+Gyms
+	*name
+	*location
+	**region
+	**gym-leader
+	*Badge
+	
+Region
+	*name

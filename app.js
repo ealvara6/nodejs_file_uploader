@@ -9,6 +9,11 @@ require('dotenv').config();
 const app = express();
 const routes = require('./routes/index');
 
+const fs = require('fs');
+if (!fs.existsSync('uploads')) {
+    fs.mkdirSync('uploads');
+}
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

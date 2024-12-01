@@ -10,6 +10,9 @@
     <div>
         <%- include('./partials/navbar.ejs') %>
         <div>
+            <% if (locals.msg) { %>
+                <div><%= msg %></div>
+            <% } %>
             <% if (locals.user) { %>
                 <div>Hello <%= user.firstName %>!</div>
             <% } %>

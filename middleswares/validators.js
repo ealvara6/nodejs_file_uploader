@@ -1,4 +1,5 @@
 const { check, validationResult } = require('express-validator');
+const fs = require('fs');
 
 const validateSignup = [
     check('firstName')
@@ -32,10 +33,27 @@ const validateSignup = [
         .withMessage('Passwords do not match.')
 ]
 
+const validateFile = [
+    check('fileName')
+    .notEmpty()
+    .withMessage('Please enter a file name.'),
+]
+
 const handleValidationErrors = (req, res, next) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        res.render(req.route.path.slice(1), { errors: errors.array() });
+    const customErrors = [];
+    if (!req.file) {
+        customErrors.push({ msg: 'No file selected.', param: 'file', location: 'body' });
+    };
+    
+    const allErrors = [...errors.array(), ...customErrors];
+    if (allErrors.length > 0) {
+        if (req.file) {
+            fs.unlink(req.file.path, (err) => {
+                if (err) console.error('failed to delete invalid file: ', err);
+            });
+        }
+        res.render(req.route.path.slice(1), { errors: allErrors });
     } else {
         next();
     }
@@ -43,5 +61,6 @@ const handleValidationErrors = (req, res, next) => {
 
 module.exports = {
     validateSignup,
+    validateFile,
     handleValidationErrors
 };

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="/css/tailwind.css">
+</head>
+<body class="bg-slate-800 text-white">
+    <div class="flex flex-col">
+        <%- include('./partials/navbar') %>
+        <form class="flex flex-col self-center gap-3 items-center" action="/file/uploadFile" method="POST" enctype="multipart/form-data">
+            <%- include('./partials/errors') %>
+            <div class="flex gap-3">
+                <label for="fileName">File Name:</label>
+                <input class="text-black" type="text" name="fileName" id="fileName">
+            </div>
+            <div>
+                <input type="file" name="file" id="file">
+            </div>
+            <button type="submit" class="bg-white text-black w-24">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
